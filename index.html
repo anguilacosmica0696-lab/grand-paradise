@@ -1,0 +1,306 @@
+```html
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costa Dorada Luxury Hotel & Spa | Puerto Plata, R.D.</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            300: '#F3E5AB',
+                            400: '#E5C158',
+                            500: '#D4AF37',
+                            600: '#B89320',
+                            700: '#8C6D13'
+                        },
+                        caribbean: {
+                            400: '#2EC4B6',
+                            500: '#00A896',
+                            800: '#028090',
+                            900: '#05668D'
+                        },
+                        navy: {
+                            800: '#111927',
+                            900: '#0B0F19'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(11, 15, 25, 0.7) 0%, rgba(11, 15, 25, 0.4) 50%, rgba(11, 15, 25, 0.95) 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .glass-dark {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #B89320 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-gold-500 selection:text-navy-900">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-gold-500/20 text-white transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border-2 border-gold-500 flex items-center justify-center text-gold-400 bg-navy-900 group-hover:scale-105 transition-transform">
+                    <i data-lucide="palmtree" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-lg sm:text-xl font-bold tracking-wider text-white block uppercase leading-none">Costa Dorada</span>
+                    <span class="text-[10px] tracking-[0.25em] text-gold-400 font-semibold uppercase block mt-1">Resort & Spa • Puerto Plata</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide">
+                <a href="#experiencia" class="hover:text-gold-400 transition-colors">La Experiencia</a>
+                <a href="#habitaciones" class="hover:text-gold-400 transition-colors">Habitaciones & Suites</a>
+                <a href="#servicios" class="hover:text-gold-400 transition-colors">Amenidades</a>
+                <a href="#gastronomia" class="hover:text-gold-400 transition-colors">Gastronomía</a>
+                <a href="#excursiones" class="hover:text-gold-400 transition-colors">Puerto Plata</a>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/18095550199" target="_blank" class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full border border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/10 text-xs font-semibold transition-all">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <button onclick="openBookingModal()" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-900 font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm tracking-wide shadow-lg hover:shadow-gold-500/20 transition-all active:scale-95 flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    <span>Reservar Ahora</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=2000&q=85" alt="Costa Dorada Beach Resort" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center text-white mt-8">
+            <!-- Luxury Tag -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-900/80 border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-6 shadow-xl backdrop-blur-md">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span>Santuario del Caribe • Puerto Plata</span>
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+
+            <!-- Title -->
+            <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+                Descubre el Paraíso Terrenal de <br class="hidden sm:inline">
+                <span class="gold-gradient-text">Costa Dorada</span>
+            </h1>
+
+            <p class="text-base sm:text-lg md:text-xl text-slate-200 font-light max-w-3xl mx-auto leading-relaxed mb-10">
+                Sumérgete en el lujo caribeño entre aguas turquesas, arena dorada y atardeceres inolvidables en la costa norte de la República Dominicana.
+            </p>
+
+            <!-- BOOKING WIDGET BAR -->
+            <div class="glass-panel rounded-3xl p-4 sm:p-6 shadow-2xl text-slate-800 text-left max-w-4xl mx-auto border border-white/60">
+                <form onsubmit="handleHeroBooking(event)" class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                    
+                    <!-- Check-in -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                            <i data-lucide="calendar" class="w-4 h-4 text-caribbean-800"></i> Llegada
+                        </label>
+                        <input type="date" id="hero-checkin" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-gold-500">
+                    </div>
+
+                    <!-- Check-out -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                            <i data-lucide="calendar" class="w-4 h-4 text-caribbean-800"></i> Salida
+                        </label>
+                        <input type="date" id="hero-checkout" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-gold-500">
+                    </div>
+
+                    <!-- Guests -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                            <i data-lucide="users" class="w-4 h-4 text-caribbean-800"></i> Huéspedes
+                        </label>
+                        <select id="hero-guests" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-gold-500">
+                            <option value="1">1 Adulto</option>
+                            <option value="2" selected>2 Adultos</option>
+                            <option value="3">2 Adultos + 1 Niño</option>
+                            <option value="4">Familia (4 personas)</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit -->
+                    <div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-900 font-bold py-3 px-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 active:scale-95 text-sm">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                            <span>Consultar Tarifa</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: EXPERIENCIA / ABOUT -->
+    <section id="experiencia" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <span class="text-xs font-bold tracking-[0.2em] text-gold-600 uppercase block">Hospitalidad de Clase Mundial</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy-900 leading-tight">
+                        Un refugio paradisíaco diseñado para el descanso absoluto
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed font-light">
+                        Ubicado en la dorada costa de Puerto Plata, **Costa Dorada Luxury Hotel & Spa** combina la calidez dominicana con la sofisticación de un resort de cinco estrellas. Disfruta de kilómetros de playa privada, jardines tropicales exóticos y un servicio personalizado que cuidará cada detalle de tu estancia.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="border-l-2 border-gold-500 pl-4 space-y-1">
+                            <span class="font-serif text-2xl sm:text-3xl font-bold text-navy-900 block">180+</span>
+                            <span class="text-xs text-slate-500 font-medium">Suites frente al mar</span>
+                        </div>
+                        <div class="border-l-2 border-gold-500 pl-4 space-y-1">
+                            <span class="font-serif text-2xl sm:text-3xl font-bold text-navy-900 block">5</span>
+                            <span class="text-xs text-slate-500 font-medium">Restaurantes de Autor</span>
+                        </div>
+                        <div class="border-l-2 border-gold-500 pl-4 space-y-1">
+                            <span class="font-serif text-2xl sm:text-3xl font-bold text-navy-900 block">100%</span>
+                            <span class="text-xs text-slate-500 font-medium">Acceso Privado a la Playa</span>
+                        </div>
+                        <div class="border-l-2 border-gold-500 pl-4 space-y-1">
+                            <span class="font-serif text-2xl sm:text-3xl font-bold text-navy-900 block">4.9★</span>
+                            <span class="text-xs text-slate-500 font-medium">Calificación de Huéspedes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Images Collage -->
+                <div class="grid grid-cols-2 gap-4 relative">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Resort Pool" class="rounded-3xl shadow-xl object-cover h-64 sm:h-80 w-full transform hover:scale-105 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Luxury Suite" class="rounded-3xl shadow-xl object-cover h-64 sm:h-80 w-full mt-8 transform hover:scale-105 transition-transform duration-500">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: ROOMS & SUITES -->
+    <section id="habitaciones" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold tracking-[0.2em] text-gold-600 uppercase block mb-2">Alojamiento Exclusivo</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy-900">Habitaciones & Suites de Lujo</h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base font-light">Diseñadas para ofrecer la máxima privacidad, elegancia y vistas panorámicas hacia el Mar Caribe.</p>
+            </div>
+
+            <!-- Rooms Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Room Card 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 flex flex-col group hover:shadow-2xl transition-all duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="Deluxe Ocean View" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <span class="absolute top-4 right-4 bg-navy-900/80 backdrop-blur-md text-gold-400 font-bold px-3 py-1 rounded-full text-xs">
+                            $280 / noche
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[10px] font-bold text-caribbean-800 uppercase tracking-widest block mb-1">Vista al Mar</span>
+                            <h3 class="font-serif text-xl font-bold text-navy-900">Deluxe Ocean View</h3>
+                            <p class="text-xs text-slate-500 mt-2 leading-relaxed">Cama King-size, balcón privado con hamaca, baño de mármol y vista directa a las playas de Puerto Plata.</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-400 text-xs border-t border-slate-100 pt-4">
+                            <span class="flex items-center gap-1"><i data-lucide="wifi" class="w-3.5 h-3.5 text-gold-500"></i> Wifi Gratis</span>
+                            <span class="flex items-center gap-1"><i data-lucide="coffee" class="w-3.5 h-3.5 text-gold-500"></i> Desayuno</span>
+                            <span class="flex items-center gap-1"><i data-lucide="tv" class="w-3.5 h-3.5 text-gold-500"></i> Smart TV</span>
+                        </div>
+                        <button onclick="openBookingModal('Deluxe Ocean View')" class="w-full border border-navy-900 hover:bg-navy-900 hover:text-white text-navy-900 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                            Reservar Suite
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Room Card 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl border-2 border-gold-500/40 flex flex-col group hover:shadow-2xl transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 z-10 bg-gold-500 text-navy-900 font-bold px-3 py-1 rounded-full text-[10px] uppercase tracking-wider shadow-md">
+                        Más Popular
+                    </span>
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80" alt="Suite Presidencial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <span class="absolute top-4 right-4 bg-navy-900/80 backdrop-blur-md text-gold-400 font-bold px-3 py-1 rounded-full text-xs">
+                            $520 / noche
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[10px] font-bold text-caribbean-800 uppercase tracking-widest block mb-1">Piscina Privada</span>
+                            <h3 class="font-serif text-xl font-bold text-navy-900">Suite Presidencial</h3>
+                            <p class="text-xs text-slate-500 mt-2 leading-relaxed">Amplia suite de 120m², terraza panorámica, jacuzzi privado, servicio de mayordomo 24/7 y acceso al Spa VIP.</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-400 text-xs border-t border-slate-100 pt-4">
+                            <span class="flex items-center gap-1"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-500"></i> Jacuzzi</span>
+                            <span class="flex items-center gap-1"><i data-lucide="wine" class="w-3.5 h-3.5 text-gold-500"></i> Bar Privado</span>
+                            <span class="flex items-center gap-1"><i data-lucide="user-check" class="w-3.5 h-3.5 text-gold-500"></i> Mayordomo</span>
+                        </div>
+                        <button onclick="openBookingModal('Suite Presidencial')" class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-navy-900 font-bold py-2.5 rounded-xl text-xs transition-colors shadow-md">
+                            Reservar Suite
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Room Card 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 flex flex-col group hover:shadow-2xl transition-all duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=800&q=80" alt="Villa Familiar Costa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <span class="absolute top-4 right-4 bg-navy-900/80 backdrop-blur-md text-gold-400 font-bold px-3 py-1 rounded-full text-xs">
+                            $750 / noche
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[10px] font-bold text-caribbean-800 uppercase tracking-widest block mb-1">Frente a la Playa</span>
+                            <h3 c
